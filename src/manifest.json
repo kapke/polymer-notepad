@@ -1,0 +1,6 @@
+{
+  "name": "polymer-notepad",
+  "short_name": "polymer-notepad",
+  "start_url": "/",
+  "display": "standalone"
+}

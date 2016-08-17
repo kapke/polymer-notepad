@@ -1,0 +1,27 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../note/note.html">
+
+<dom-module id="pn-notes-list">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+        <template is="dom-repeat" items="{{notes}}">
+            <pn-note note="[[item]]"></pn-note>
+        </template>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'pn-notes-list',
+            properties: {
+                notes: {
+                    type: Array,
+                    value: []
+                }
+            }
+        });
+    </script>
+</dom-module>

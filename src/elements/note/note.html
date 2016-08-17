@@ -1,0 +1,24 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="pn-note">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+        <p>Notka</p>
+        <div>{{note.title}}</div>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'pn-note',
+            properties: {
+                note: {
+                    type: Object
+                }
+            }
+        });
+    </script>
+</dom-module>

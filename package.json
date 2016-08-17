@@ -1,0 +1,22 @@
+{
+  "name": "polymer-notepad",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install": "bower install",
+    "start": "webpack-dev-server --content-base=./src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "polymer-cli": "^0.14.0",
+    "webpack": "^2.1.0-beta.20",
+    "webpack-dev-server": "^2.1.0-beta.0"
+  },
+  "dependencies": {
+    "sg-service-registry": "^0.1.1"
+  }
+}

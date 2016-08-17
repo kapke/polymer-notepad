@@ -1,0 +1,35 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../notes-list/notes-list.html">
+<link rel="import" href="../new-note/new-note.html">
+
+
+<dom-module id="pn-app">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+        <pn-new-note></pn-new-note>
+        <pn-notes-list notes="{{notes}}"></pn-notes-list>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'pn-app',
+            behaviors: [ServicesBehavior],
+            properties: {
+                notes: {
+                    type: Array,
+                    value: []
+                }
+            },
+            ready () {
+                this.getService('noteRepository').getNotes()
+                    .then((notes) => {
+                        this.notes = notes;
+                    });
+            }
+        });
+    </script>
+</dom-module>
