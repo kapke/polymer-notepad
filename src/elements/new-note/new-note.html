@@ -1,19 +1,42 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-material/paper-material.html">
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
 <link rel="import" href="../../bower_components/iron-form/iron-form.html">
 
 <dom-module id="pn-new-note">
+    <style>
+        paper-material {
+            padding: 1rem;
+        }
+        .actions {
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: row-reverse;
+        }
+
+        paper-button {
+            background-color: var(--google-blue-700);
+            color: white;
+        }
+    </style>
     <template>
-        <form is="iron-form" id="form">
-            <paper-input name="title" label="Title"></paper-input>
-            <paper-button id="addButton">Add note</paper-button>
-        </form>
+        <paper-material>
+            <form is="iron-form" id="form">
+                <paper-input name="title" label="Title"></paper-input>
+                <paper-textarea name="content" label="Content"></paper-textarea>
+                <div class="actions">
+                    <paper-button id="addButton" raised="true">Add note</paper-button>
+                </div>
+            </form>
+        </paper-material>
     </template>
 
     <script>
         Polymer({
             is: 'pn-new-note',
+            behaviors: [ServicesBehavior],
             properties: {
                 note: {
                     type: Object
@@ -29,6 +52,13 @@
             },
             addNote () {
                 const noteData = this.$.form.serialize();
+
+                this.getService('noteRepository')
+                    .addNote(noteData)
+                    .subscribe(() => this.clearForm())
+            },
+            clearForm () {
+                this.$.form.reset();
             }
         });
     </script>

@@ -17,6 +17,7 @@
     "webpack-dev-server": "^2.1.0-beta.0"
   },
   "dependencies": {
+    "rxjs": "^5.0.0-beta.11",
     "sg-service-registry": "^0.1.1"
   }
 }

@@ -1,4 +1,9 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-styles/color.html">
+<link rel="import" href="../../bower_components/paper-styles/default-theme.html">
+<link rel="import" href="../../bower_components/paper-styles/shadow.html">
+<link rel="import" href="../../bower_components/paper-styles/typography.html">
+<link rel="import" href="../../bower_components/paper-styles/demo-pages.html">
 <link rel="import" href="../notes-list/notes-list.html">
 <link rel="import" href="../new-note/new-note.html">
 
@@ -7,7 +12,12 @@
     <template>
         <style>
             :host {
-                display: block;
+                display: flex;
+                flex-direction: row;
+            }
+
+            pn-notes-list, pn-new-note {
+                flex-flow: 1;
             }
         </style>
         <pn-new-note></pn-new-note>
@@ -25,8 +35,8 @@
                 }
             },
             ready () {
-                this.getService('noteRepository').getNotes()
-                    .then((notes) => {
+                this.getService('noteRepository').getNotes$()
+                    .subscribe((notes) => {
                         this.notes = notes;
                     });
             }

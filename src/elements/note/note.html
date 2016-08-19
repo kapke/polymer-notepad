@@ -1,4 +1,5 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
 
 <dom-module id="pn-note">
     <template>
@@ -7,8 +8,11 @@
                 display: block;
             }
         </style>
-        <p>Notka</p>
-        <div>{{note.title}}</div>
+        <paper-card heading="[[note.title]]">
+            <div class="card-content">
+                {{ note.content }}
+            </div>
+        </paper-card>
     </template>
 
     <script>

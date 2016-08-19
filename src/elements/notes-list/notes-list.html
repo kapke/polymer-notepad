@@ -5,7 +5,12 @@
     <template>
         <style>
             :host {
-                display: block;
+                display: flex;
+                flex-direction: row;
+            }
+
+            pn-note {
+                margin: 1rem;
             }
         </style>
         <template is="dom-repeat" items="{{notes}}">
